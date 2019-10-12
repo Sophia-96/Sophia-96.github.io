@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Learning JavaScript</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="header">
+	<h1 id="heading">Learning JavaScript</h1>
+	<p>With Brad Traversy</p>
+</div>
+
+<div class="container">
+	<form method="post" action="something.php" name="myForm" onsubmit="return validateForm()">
+	<div>
+	<br><br>
+		<label>First name</label>
+		<input type="text" name="firstName" id="firstName"/>
+	</div>
+	<br>
+	<div>
+		<label>Last Name</label>
+		<input type="text" name="lastName" id="lastName"/>
+	</div>
+	<br>
+	<input type="submit" value="Submit"/>
+	</form>
+</div>
+
+<script>
+function validateForm(){
+	var firstName = document.forms["myForm"]["firstName"].value;
+
+	if(firstName == null || firstName == ""){
+		alert("First name is required");
+		return false;
+	}
+
+	if(firstName.length < 3){
+		alert("First name must be at least 3 characters");
+		return false;
+	}
+}
+</script>
+
+</body>
+</html>

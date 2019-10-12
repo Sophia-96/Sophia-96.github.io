@@ -1,0 +1,6 @@
+Assignment #3:
+Scrap data from the web using ParseHub but provide me with the source (i.e. URL) of the original web pages.
+Clean up the data with OpenRefine and send me the OpenRefine project file so I can open the project and trace your steps.
+Import the cleaned data into Airtable.
+Send me the link for viewing the result inside Airtable.
+If you cannot find any data related to your topic that needs to be cleaned, just send me an OpenRefine project with problematic data that you¡¯ve fixed.

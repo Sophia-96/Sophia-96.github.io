@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>My first styled page</title>
+  <!--The CSS properties we use for that are 'padding-left' (to move the body text) and 'position', 'left' and 'top' (to move the menu).-->
+  <!--The 'position: absolute' says that the ul element is positioned independently of any text that comes before or after it in the document and the 'left' and 'top' indicate what that position is.-->
+  <!--In HTML, hyperlinks are created with <a> elements, so to specify the color, we need to add a style rule for “a”. To differentiate between visited and unvisited links, CSS provides two “pseudo-classes” (:link and :visited). They are called “pseudo-classes” to distinguish them from class attributes, that appear in the HTML directly, e.g., the class="navbar" in our example.-->
+  <link rel="stylesheet" href="mystyle.css">
+</head>
+
+<body>
+
+<!-- Site navigation menu -->
+<!-- The file name should be the same as follows -->
+<ul class="navbar">
+  <li><a href="index.html">Home page</a>
+  <li><a href="musings.html">Musings</a>
+  <li><a href="town.html">My town</a>
+  <li><a href="links.html">Links</a>
+</ul>
+
+<!-- Main content -->
+<h1>My first styled page</h1>
+
+<p>Welcome to my styled page!
+
+<p>It lacks images, but at least it has style.
+And it has links, even if they don't go
+anywhere&hellip;
+
+<p>There should be more here, but I don't know
+what yet.
+
+<img src="<iframe title="[ Insert title here ]" aria-label="Interactive line chart" id="datawrapper-chart-OjJPW" src="//datawrapper.dwcdn.net/OjJPW/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();</script>"></img>
+
+<!-- Sign and date the page, it's only polite! -->
+<address>Made 5 April 2004<br>
+  by myself.</address>
+
+</body>
+</html>
