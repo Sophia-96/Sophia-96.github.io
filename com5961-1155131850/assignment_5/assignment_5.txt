@@ -1,0 +1,3 @@
+assignment #5:
+1. Complete JQuery DataTable example using your own dataset from previous assignments. This requires you to convert your original file into JSON format.
+2. Share the Airtable tables with both detailed data and rolled-up views embedded in a web page (or web pages depending on how you may want to show it) hosted on github that I can see without downloading the pages.
