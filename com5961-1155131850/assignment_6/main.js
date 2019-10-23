@@ -18,20 +18,19 @@ $(document).ready(function(){
     $("button#get_data").click(function() {
         var items = [];
         var i = 0;
-        var airtable_read_endpoint = "https://api.airtable.com/v0/appTnH4OwE42YrYVi/Table%201?api_key=YOUR_API_KEY";
+        var airtable_read_endpoint = "https://api.airtable.com/v0/appTnH4OwE42YrYVi/Foreign%20Language%20Movies?api_key=keyV7QPdbhgkDIJS6";
         var dataSet = [];
         $.getJSON(airtable_read_endpoint, function(result) {
                $.each(result.records, function(key,value) {
                    items = [];
-                       items.push(value.fields.Name);
-                       items.push(value.fields.Director);
-                       items.push(value.fields.Poster);
-                       items.push(value.fields.Genre);
-                       items.push(value.fields.Genre_type);
-                       items.push(value.fields.Region);
-                       items.push(value.fields.Release_Date);
-                       items.push(value.fields.Length);
-                       items.push(value.fields.Score);
+                       items.push(value.fields.name);
+                       items.push(value.fields.director);
+                       items.push(value.fields.genre);
+                       items.push(value.fields.genre_type);
+                       items.push(value.fields.region);
+                       items.push(value.fields.release_date);
+                       items.push(value.fields.length);
+                       items.push(value.fields.score);
                        dataSet.push(items);
                        console.log(items);
                 }); // end .each
@@ -41,23 +40,21 @@ $(document).ready(function(){
                  data: dataSet,
                  retrieve: true,
                  columns: [
-                     { title: "Name",
+                     { title: "name",
                        defaultContent:""},
-                     { title: "Director",
+                     { title: "director",
                          defaultContent:"" },
-                     { title: "Poster",
-                       defaultContent:"" },
-                     { title: "Genre",
+                     { title: "genre",
                        defaultContent:""},
-                     { title: "Genre_type",
+                     { title: "genre_type",
                          defaultContent:""},
-                     { title: "Region",
+                     { title: "region",
                        defaultContent:""},
-                     { title: "Release_Date",
+                     { title: "release_date",
                        defaultContent:""},
-                     { title: "Length",
+                     { title: "length",
                      defaultContent:""},
-                     { title: "Score",
+                     { title: "score",
                      defaultContent:""},
                  ]
              } );
