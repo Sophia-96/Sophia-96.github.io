@@ -70,53 +70,67 @@
         <div id="chart"></div>
     </div><!--end row -->
   </div><!-- container -->
-
-  <div id="chart"></div>
-    <br><h1>Some Cinemas in HK</h1><br>
+ 
+    <section id="#map" class="bg-light"></section>
+        <h1>Some Cinemas in HK</h1><br>
         <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-        <button type="button" class="btn btn-warning" id='roll_up' onclick="show_districts();">Show Districts</button><br><br>
-        <div id="map" style="width: 600px; height: 400px"></div>
+            <button type="button" class="btn btn-warning" id='roll_up' onclick="show_districts();">Show Districts</button><br><br>
+            <div id="map" style="width: 600px; height: 400px"></div>
         </div><!-- column -->
-    </div><!-- row -->
+        </div><!-- row -->
     </div><!-- end col -->
     </div><!--end row -->
     </div><!-- container -->
 
-<script>
-    var mapboxTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom: 18,});
+    
 
-    var map = L.map('map')
-        .addLayer(mapboxTiles)
-        .setView([22.287111, 114.191667], 11);
-    var items = [];
-    var airtable_read_endpoint = "https://api.airtable.com/v0/appweDryqwYAXaKEy/Table%201?api_key=keyV7QPdbhgkDIJS6";
-
-    var data = [];
-    $.getJSON(airtable_read_endpoint, function(result) {
-        $.each(result.records, function(key,value) {
-        items = {};
-           items["name"] = value.fields.name;
-           items["url"] = value.fields.url;
-           items["picture"] = value.fields.picture;
-           items["pic_url"] = value.fields.pic_url;
-           items["latitud"] = value.fields.lat;
-           items["longitud"] = value.fields.lng;
-           data.push(items);
-           console.log(items);
-        }); // end .each
-    }); // end getJSON
-</script>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Services we offer</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
     <script>
-    function show_districts(){
-        for (var i in data) {
-        var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud});
-    L.marker( latlng )
-      .bindPopup( '<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].pic_url+'" width = "80px"><br>'+data[i].name + '</a>' )
-      .addTo(map);
-    }
-    </script>
-    <script src='main.js'></script>
-    </body>
+        var mapboxTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom: 18,});
+    
+        var map = L.map('map')
+              .addLayer(mapboxTiles)
+              .setView([22.287111, 114.191667], 11);
+        var items = [];
+        var airtable_read_endpoint = "https://api.airtable.com/v0/appweDryqwYAXaKEy/Table%201?api_key=keyV7QPdbhgkDIJS6";
+    
+        var data = [];
+        $.getJSON(airtable_read_endpoint, function(result) {
+               $.each(result.records, function(key,value) {
+                   items = {};
+                       items["name"] = value.fields.name;
+                       items["url"] = value.fields.url;
+                       items["picture"] = value.fields.picture;
+                       items["pic_url"] = value.fields.pic_url;
+                       items["latitud"] = value.fields.lat;
+                       items["longitud"] = value.fields.lng;
+                       data.push(items);
+                       console.log(items);
+                }); // end .each
+        }); // end getJSON
+      </script>
+    
+      <script>
+        function show_districts(){
+          for (var i in data) {
+              var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud});
+              L.marker( latlng )
+                  .bindPopup( '<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].pic_url+'" width = "80px"><br>'+data[i].name + '</a>' )
+                  .addTo(map);
+          }
+        }
+      </script>
+      <script src='main.js'></script>
+
+</body>
 </html>
