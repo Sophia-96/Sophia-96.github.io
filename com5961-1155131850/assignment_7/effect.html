@@ -54,7 +54,7 @@
       </div>
     </div>
   </nav>
-
+  
   <!-- Header -->
   <header class="bg-primary text-white">
     <div class="container text-center">
@@ -66,22 +66,22 @@
   <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-        <h1>Chart about movies</h1><br>
+        <br><h1>Chart about movies</h1><br>
         <div id="chart"></div>
     </div><!--end row -->
   </div><!-- container -->
 
   <div id="chart"></div>
-  <h1>Some Cinemas in HK</h1><br>
-  <div class="row">
-     <div class="col-xs-12 col-sm-12 col-md-12">
-       <button type="button" class="btn btn-warning" id='roll_up' onclick="show_districts();">Show Districts</button><br><br>
-      <div id="map" style="width: 600px; height: 400px"></div>
-     </div><!-- column -->
-  </div><!-- row -->
-  </div><!-- end col -->
-  </div><!--end row -->
-  </div><!-- container -->
+    <br><h1>Some Cinemas in HK</h1><br>
+        <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+        <button type="button" class="btn btn-warning" id='roll_up' onclick="show_districts();">Show Districts</button><br><br>
+        <div id="map" style="width: 600px; height: 400px"></div>
+        </div><!-- column -->
+    </div><!-- row -->
+    </div><!-- end col -->
+    </div><!--end row -->
+    </div><!-- container -->
 
 <script>
     var mapboxTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom: 18,});
@@ -108,16 +108,15 @@
     }); // end getJSON
 </script>
 
-<script>
-function show_districts(){
-for (var i in data) {
-  var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud});
-  L.marker( latlng )
+    <script>
+    function show_districts(){
+        for (var i in data) {
+        var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud});
+    L.marker( latlng )
       .bindPopup( '<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].pic_url+'" width = "80px"><br>'+data[i].name + '</a>' )
       .addTo(map);
-}
-</script>
-
-<script src='main.js'></script>
-</body>
+    }
+    </script>
+    <script src='main.js'></script>
+    </body>
 </html>
