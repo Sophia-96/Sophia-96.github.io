@@ -1,3 +1,4 @@
+$(document).ready(function(){
       $("button#get_data2").click(function() {
       var items = [];
       var i = 0;
@@ -37,7 +38,7 @@
                     title: "# of Items by genre_type:",
                 }
             });
-
+        })
      // }); end .getJSON
 
    }); // end button
