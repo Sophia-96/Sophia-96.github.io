@@ -1,7 +1,7 @@
       $("button#get_data2").click(function() {
       var items = [];
       var i = 0;
-      var airtable_read_endpoint = "https://api.airtable.com/v0/appweDryqwYAXaKEy/Table%201?api_key=keyV7QPdbhgkDIJS6";
+      var airtable_read_endpoint = "https://api.airtable.com/v0/appRqQDyaA4prczrI/Table%201?api_key=keyV7QPdbhgkDIJS6";
       var dataSet = [];
       $.getJSON(airtable_read_endpoint, function(result) {
              $.each(result.records, function(key,value) {
@@ -34,7 +34,7 @@
                   y: {label: '# of Items'}
                 },
                 bar: {
-                    title: "# of Items by genre type:",
+                    title: "# of Items by genre_type:",
                 }
             });
 
