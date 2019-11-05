@@ -56,7 +56,7 @@
   </nav>
   
   <!-- Header -->
-  <header class="bg-white text-black">
+  <header class="bg-white text-black" id="gallery">
     <div class="container text-center">
       <h1>Movies Gallery</h1>
       <p class="lead">Top foreign language movies you cannot miss</p><br>
@@ -87,12 +87,12 @@
 
   <div class="container">
     <br><h1>Chart about movies</h1><br>
-    <div class="row">
+    <div class="row" id="chart">
         <div class="col-xs-12 col-sm-12 col-md-12">
-        <div id="chart"></div>
     </div><!--end row -->
   </div><!-- container -->
 
+  <div class="container">
     <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <br><h1>Some Cinemas in HK</h1><br>
@@ -100,6 +100,7 @@
         <div id="map" style="width: 600px; height: 400px"></div>
     </div><!-- column -->
     </div><!-- row -->
+  </div>
 
     <script>
         var mapboxTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom: 18,});
