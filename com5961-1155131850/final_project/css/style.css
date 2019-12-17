@@ -957,6 +957,23 @@ body.mobile-nav-active #mobile-nav-toggle {
   transform: scale(1.1);
 }
 
+#venue button {
+  border: 0;
+  padding: 9px 25px;
+  cursor: pointer;
+  background: #f82249;
+  color: #fff;
+  transition: all 0.3s ease;
+  outline: none;
+  font-size: 16px;
+  border-radius: 50px;
+}
+
+#venue button:hover {
+  background: #e0072f;
+}
+
+
 /*--------------------------------------------------------------
 # Videos Section
 --------------------------------------------------------------*/
