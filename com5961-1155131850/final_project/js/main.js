@@ -134,46 +134,5 @@ jQuery(document).ready(function( $ ) {
     }
   });
 
-  // Events Section - Table
-  $("button#get_data").click(function() {
-    var items = [];
-    var i = 0;
-    var airtable_read_endpoint = "https://api.airtable.com/v0/appsxpte48jIUyyG2/Men?api_key=keygwX4DioRe1fgA2";
-    var dataSet = [];
-    $.getJSON(airtable_read_endpoint, function(result) {
-           $.each(result.records, function(key,value) {
-               items = [];
-                   items.push(value.fields.ranking);
-                   items.push(value.fields.name);
-                   items.push(value.fields.nat);
-                   items.push(value.fields.sp);
-                   items.push(value.fields.fs);
-                   items.push(value.fields.total);
-                   dataSet.push(items);
-                   console.log(items);
-            }); // end .each
-            console.log(dataSet);
-
-         $('#table1').DataTable( {
-             data: dataSet,
-             retrieve: true,
-             columns: [
-                 { title: "ranking",
-                   defaultContent:""},
-                 { title: "name",
-                     defaultContent:"" },
-                 { title: "nat",
-                   defaultContent:""},
-                 { title: "sp",
-                     defaultContent:""},
-                 { title: "fs",
-                   defaultContent:""},
-                 { title: "total",
-                   defaultContent:""},
-             ]
-         } );
-    }); // end .getJSON
-  }); // end button
-
 
 });

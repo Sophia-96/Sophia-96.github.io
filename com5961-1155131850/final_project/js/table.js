@@ -160,22 +160,5 @@ $(document).ready(function(){
            });
       }); // end .getJSON
   }); // end button
-
-   $("button#men").click(function(){
-       $("#rw").slideToggle(1000);
-   });
-
-   $("button#ladies").click(function(){
-       $("#rm").slideToggle(1000);
-   });
-
-   $("button#pairs").click(function(){
-       $("#cw").slideToggle(1000);
-   });
-
-   $("button#dance").click(function(){
-       $("#cm").slideToggle(1000);
-   });
-
    
 });// document ready
