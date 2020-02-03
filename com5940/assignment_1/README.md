@@ -1,5 +1,5 @@
 # Assignment #1:
-<b><p>assignment_1.sql</p>
+<p><b>assignment_1.sql</b></p>
 <p>- Create a MySQL database using phpMyAdmin and set up tables with data derived from the final com5961 project</p>
 <br>
 <p>assignment_1.ipynb</p>
