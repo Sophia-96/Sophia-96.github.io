@@ -1176,6 +1176,8 @@ hr {
 [role="button"] {
   cursor: pointer;
 }
+
+
 h1,
 h2,
 h3,
@@ -1188,11 +1190,12 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: Lato;
+  font-family: "Raleway", sans-serif;
   font-weight: 500;
   line-height: 1.1;
-  color: inherit;
+  color: #0e1b4d;
 }
+
 h1 small,
 h2 small,
 h3 small,
@@ -1219,7 +1222,7 @@ h6 .small,
 .h6 .small {
   font-weight: normal;
   line-height: 1;
-  color: #777777;
+  color: #9195a2;
 }
 h1,
 .h1,
@@ -1242,7 +1245,7 @@ h2 .small,
 .h2 .small,
 h3 .small,
 .h3 .small {
-  font-size: 65%;
+  font-size: 18px;
 }
 h4,
 .h4,
