@@ -1,13 +1,34 @@
+.body {
+    font-family:"Raleway", sans-serif;
+}
+
 .cover .navbar {
     background-color: rgba(6, 12, 34, 0.98);
 }
 
-.cover h1, .cover .h1 {
-    color: #ffffff;
+.cover p {
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 700;
+    color: #ebebeb;
 }
 
-#intro h1 span {
-    color: #f82249;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #0e1b4d;
 }
 
 .back-to-top {

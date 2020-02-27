@@ -6641,7 +6641,7 @@ body {
 .cover {
   padding: 30px 15px;
   margin-bottom: 30px;
-  color: inherit;
+  color: #f82249;
   background-color: #eeeeee;
   margin-bottom: 0px !important;
   padding: 0px 0px;
@@ -6663,7 +6663,7 @@ body {
 .cover p {
   margin-bottom: 15px;
   font-size: 21px;
-  font-weight: 200;
+  font-weight: 700;
 }
 .cover > hr {
   border-top-color: #d5d5d5;
