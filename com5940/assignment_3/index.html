@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta http-equiv="Content-Security-Policy"
+        content="default-src * 'self' data: gap: 'unsafe-inline' 'unsafe-eval';
+        style-src * 'self' 'unsafe-inline' 'unsafe-eval' gap:;
+        script-src * 'self' 'unsafe-inline' 'unsafe-eval' gap:; frame-src *;">
+        <title>Figure Skating</title>
+        <link href="css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link href="css/font-lato.css"
+        rel="stylesheet" type="text/css">
+        <link href="bootstrap.css"
+        rel="stylesheet" type="text/css">
+        <link href="css/mystyle.css"
+        rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    </head>
+    
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#categories">About</a>
+                        </li>
+                        <li>
+                            <a href="#top3">Top 3</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="cover">
+            <div class="background-image-fixed cover-image" style="background-image : url('\img\cover.jpg')"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1>FIGURE SKATING</h1>
+                        <p>A competitive and artistic sport not to be missed.</p>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" id="categories">
+                        <div class="section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h1 class="text-center">SKATING CATEGORIES</h1>
+                                        <p class="text-center">For anyone who are interested in figure skating and would like to explore
+                                            it with us.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img src="img\freeskating.jpg" class="img-responsive">
+                                        <h2>Free Skating</h2>
+                                        <a class="btn btn-lg btn-primary" data-toggle="modal"
+                                        id="modal-btn" data-target="#mymodal">View</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="img\shortprogram.jpg" class="img-responsive">
+                                        <h2>Short Program</h2>
+                                        <a class="btn btn-lg btn-primary">View</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="img\pairs.jpg" class="img-responsive">
+                                        <h2>Pairs</h2>
+                                        <a class="btn btn-lg btn-primary">View</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="img\icedance.jpg" class="img-responsive">
+                                        <h2>Ice Dance</h2>
+                                        <a class="btn btn-lg btn-primary">View</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="mymodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Free Skating</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="img\freeskating.jpg" class="img-responsive">
+                        <p>Freestyle combines intricate footwork, spirals (sustained one-foot glides
+                            on a single edge), spins, and jumps. Footwork includes step maneuvers that
+                            are performed the length of the ice or in a circle and done in sequences
+                            demonstrating agility, dexterity, and speed. The skater changes position
+                            and moves in a straight line, circle, or serpentine patterns.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-default" data-dismiss="modal">Close</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="top3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center">2019 WORLD CHAMPIONSHIPS</h1>
+                        <p class="text-center">March 18 - March 24, Saitama City / JPN</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+                        class="center-block img-circle img-responsive">
+                        <h3 class="text-center">John Doe</h3>
+                        <p class="text-center">Developer</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+                        class="center-block img-circle img-responsive">
+                        <h3 class="text-center">John Doe</h3>
+                        <p class="text-center">Developer</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+                        class="center-block img-circle img-responsive">
+                        <h3 class="text-center">John Doe</h3>
+                        <p class="text-center">Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Footer-->
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center">© Copyright
+                            <b>Sophia COMM 5940,</b>&nbsp;CUHK.&nbsp;
+                            <br>All Rights Deserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="back-to-top" style="display: inline;"><i class="fa fa-angle-up"></i></a>        
+    </body>
+
+</html>
