@@ -1087,7 +1087,7 @@ html {
 }
 body {
   font-family: Lato;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.42857143;
   color: #000000;
   background-color: #ffffff;
@@ -1280,7 +1280,7 @@ h2,
 }
 h3,
 .h3 {
-  font-size: 24px;
+  font-size: 23px;
 }
 h4,
 .h4 {
@@ -2999,7 +2999,7 @@ select[multiple].form-group-lg .form-control {
   border: 1px solid transparent;
   white-space: nowrap;
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.42857143;
   border-radius: 4px;
   -webkit-user-select: none;
