@@ -23,6 +23,16 @@
         rel="stylesheet" type="text/css">
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <script>
+            function modal_handle(category, image, detail) {
+                         $("h3.modal-title").html(`${category}`);
+                         $(".modal-body").html(`<img src="${image}"
+                             class="img-responsive"><p>${detail}</p>`);
+                         $('#popup-photo').modal('show');
+             } // end modal_handle function
+        </script>
+
     </head>
     
     <body>
@@ -64,49 +74,24 @@
                 </div>
             </div>
         </div>
+
         <div class="section" id="categories">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="section-header">
-                                        <h1 class="text-center">SKATING CATEGORIES</h1>
-                                        <p class="text-center">For anyone who are interested in figure skating and would like to explore
-                                            it with us.</p><br><br><br>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img src="img/freeskating.jpg" class="img-responsive">
-                                        <h2>Free Skating</h2>
-                                        <a class="btn btn-md btn-primary" data-toggle="modal"
-                                        id="modal-btn" data-target="#mymodal">View</a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <img src="img/shortprogram.jpg" class="img-responsive">
-                                        <h2>Short Program</h2>
-                                        <a class="btn btn-md btn-primary">View</a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <img src="img/pairs.jpg" class="img-responsive">
-                                        <h2>Pairs</h2>
-                                        <a class="btn btn-md btn-primary">View</a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <img src="img/icedance.jpg" class="img-responsive">
-                                        <h2>Ice Dance</h2>
-                                        <a class="btn btn-md btn-primary">View</a>
-                                    </div>
-                                </div>
+                            <div class="section-header">
+                                <h1 class="text-center">SKATING CATEGORIES</h1>
+                                <p class="text-center">For anyone who are interested in figure skating and would like to explore
+                                it with us.</p><br><br><br>
                             </div>
                         </div>
-                    </div>
+                    </div><!-- end container -->
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="mymodal">
+
+        <div class="modal fade" id="popup-photo">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -114,9 +99,7 @@
                         <h4 class="modal-title" id="myModalLabel">Free Skating</h4>
                     </div>
                     <div class="modal-body">
-                        <img src="img/freeskating.jpg" class="img-responsive">
-                        <p><br>Ice dance is similar to pairs in that two people skate together, but, unlike pairs, ice dancers do not do jumps and do only certain kinds of lifts. Instead, ice dancers focus on creating footwork and body movements that express dance on ice.
-                            Ice dancing does not allow the introduction of such singles elements as jumps and intricate spins or such pairs moves as overhead lifts and throw jumps because they are thought to be inconsistent with the character of dance. Dance lifts, often done in the free dance, are legal, but moves that take the woman over the man’s shoulder are not allowed.</p>
+                        <p><br></p>
                     </div>
                     <div class="modal-footer">
                         <a class="btn btn-default" data-dismiss="modal">Close</a>
@@ -124,6 +107,53 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            $(document).ready(function(){
+                var counter = 1;
+                var at_getapi = "https://api.airtable.com/v0/appfae34QFjBmiKNs/cat?api_key=keygwX4DioRe1fgA2";
+                $.getJSON(at_getapi, function(result) {
+                    $.each(result.records, function(key,value) {
+                            var category = value.fields.category;
+                            var image = value.fields.image;
+                            var detail = value.fields.detail;
+                            if (counter == 1) {$("#categories").append(`<div class="row">`)};
+                            $("#categories").append(`<div class="col-md-3">
+                        <div class="thumbnail">
+                            <img height="auto" width="100%" src="${image}"
+                            class="img-responsive" style="max-height:200px;">
+                            <div class="caption">
+                                <h2>${category}</h2>
+                                <button class="btn btn-md btn-primary" onclick="modal_handle('${category}','${image}','${detail}')" data-toggle="modal"
+                                 data-id="107" data-body="testing...">View</button>
+                            </div>
+                        </div>
+                    </div>`);
+                            counter = counter +1; // counter++;
+                            if (counter == 5) {
+                                $("#categories").append(`<div class="/row">`);
+                                counter = 1;
+                            };
+
+                    }); // end each
+                }); // end getJSON
+                
+                var mybutton = document.getElementById("myBtn");
+                // When the user scrolls down 20px from the top of the document, show the button
+                window.onscroll = function() {scrollFunction()};
+
+                function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+                }
+                // When the user clicks on the button, scroll to the top of the document
+            }); // end document ready
+
+        </script>
+
         <div class="section" id="top3">
             <div class="container">
                 <div class="row">
@@ -138,19 +168,19 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <img src="img/1.jpg"
+                                        <img src="img/8.png"
                                         class="center-block img-circle img-responsive">
                                         <h3 class="text-center">John Doe</h3>
                                         <p class="text-center">Developer</p>
                                     </div>
                                     <div class="col-md-4">
-                                        <img src="img/2.jpg"
+                                        <img src="img/4.jpg"
                                         class="center-block img-circle img-responsive">
                                         <h3 class="text-center">John Doe</h3>
                                         <p class="text-center">Developer</p>
                                     </div>
                                     <div class="col-md-4">
-                                        <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+                                        <img src="img/11.png"
                                         class="center-block img-circle img-responsive">
                                         <h3 class="text-center">John Doe</h3>
                                         <p class="text-center">Developer</p>
