@@ -22,6 +22,10 @@
     color: #9195a2;
 }
 
+.thumbnail {
+    padding: 0px;
+}
+
 .back-to-top {
     position: fixed;
     background: #f82249;

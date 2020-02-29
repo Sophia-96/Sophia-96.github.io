@@ -25,10 +25,10 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
         <script>
-            function modal_handle(category, image, detail) {
+            function modal_handle(category, org_desc, image) {
                          $("h3.modal-title").html(`${category}`);
                          $(".modal-body").html(`<img src="${image}"
-                             class="img-responsive"><p>${detail}</p>`);
+                             class="img-responsive"><p>${org_desc}</p>`);
                          $('#popup-photo').modal('show');
              } // end modal_handle function
         </script>
@@ -80,7 +80,7 @@
                             <div class="section-header">
                                 <h1 class="text-center">SKATING CATEGORIES</h1>
                                 <p class="text-center">For anyone who are interested in figure skating and would like to explore
-                                it with us.</p><br><br><br>
+                                it with us.</p><br>
                             </div>
                         </div>
                     </div><!-- end container -->
@@ -111,17 +111,17 @@
                 var at_getapi = "https://api.airtable.com/v0/appfae34QFjBmiKNs/cat?api_key=keygwX4DioRe1fgA2";
                 $.getJSON(at_getapi, function(result) {
                     $.each(result.records, function(key,value) {
-                            var category = value.fields.category;
-                            var image = value.fields.image;
-                            var detail = value.fields.detail;
+                            var category = value.fields.Name;
+                            var desc = value.fields.Detail;
+                            var image = value.fields.img_url;
                             if (counter == 1) {$("#categories").append(`<div class="row">`)};
                             $("#categories").append(`<div class="col-md-3">
                         <div class="thumbnail">
                             <img height="auto" width="100%" src="${image}"
-                            class="img-responsive" style="max-height:200px;">
+                            class="img-responsive" style="max-height:200px; object-fit:cover">
                             <div class="caption">
                                 <h3>${category}</h3>
-                                <button class="btn btn-md btn-primary" onclick="modal_handle('${category}','${image}','${detail}')" data-toggle="modal"
+                                <button class="btn btn-md btn-primary" onclick="modal_handle('${category}','${image}','${desc}')" data-toggle="modal"
                                  data-id="107" data-body="testing...">View</button>
                             </div>
                         </div>
@@ -134,22 +134,12 @@
 
                     }); // end each
                 }); // end getJSON
-                
-                var mybutton = document.getElementById("myBtn");
-                // When the user scrolls down 20px from the top of the document, show the button
-                window.onscroll = function() {scrollFunction()};
-
-                function scrollFunction() {
-                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                    mybutton.style.display = "block";
-                } else {
-                    mybutton.style.display = "none";
-                }
-                }
-                // When the user clicks on the button, scroll to the top of the document
             }); // end document ready
 
         </script>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
 
         <div class="section" id="top3">
             <div class="container">
@@ -230,6 +220,7 @@
         });
         });
         </script>
+        
     </body>
 
 </html>

@@ -4889,7 +4889,7 @@ a.badge:focus {
 }
 .thumbnail {
   display: block;
-  padding: 4px;
+  padding: 0px 0px 4px;
   margin-bottom: 20px;
   line-height: 1.42857143;
   background-color: #ffffff;
@@ -4910,7 +4910,7 @@ a.thumbnail.active {
   border-color: #337cbb;
 }
 .thumbnail .caption {
-  padding: 9px;
+  padding: 9px 20px;
   color: #000000;
 }
 .alert {
