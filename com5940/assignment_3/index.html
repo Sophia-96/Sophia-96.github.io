@@ -32,7 +32,7 @@
                          $('#popup-photo').modal('show');
             } // end modal_handle function
         </script>
-    
+		
     </head>
     
     <body>
@@ -134,12 +134,59 @@
         </script>
 
         <div id="top3">
-            <div class="container" id="top3_items">
+            <div class="container">
                 <div class="section-header">
-                    <h1 class="text-center">2019 WORLD CHAMPIONSHIPS TOP3</h1>
-                    <p class="text-center">March 18 - March 24, Saitama City / JPN</p><br><br>
+                    <h1 class="text-center">2019 WORLD CHAMPIONSHIPS TOP3<br></h1>
+                    <p class="text-center">March 18 - March 24, Saitama City / JPN</p><br>
                 </div>
-            </div><!-- end container -->
+            </div>
+        </div>
+
+        <script>
+                $(document).ready(function(){
+                    var counter = 1;
+                    var at_getapi = "https://api.airtable.com/v0/appfae34QFjBmiKNs/top?api_key=keyV7QPdbhgkDIJS6";
+                    $.getJSON(at_getapi, function(result) {
+                        $.each(result.records, function(key,value) {
+                                var name = value.fields.Name;
+                                var nat = value.fields.Nat;
+                                var sp = value.fields.SP;
+                                var fs = value.fields.FS;
+                                var tot = value.fields.Total;
+                                var pic = value.fields.Pic_url;
+                                var ranking = value.fields.Ranking;
+                                if (counter == 1) {$("#top3_items").append(`<div class="row">`)};
+                                $("#top3_items").append(`<div class="col-md-4" style="text-align:center">
+                            <div class="top3_items">
+                                <img height="auto" width="100%" src="${pic}" class="center-block img-circle img-responsive">
+                                <div class="top-content"><br>
+                                    <h3 class="top-title">${name}</h3>
+                                    <p class="top-body">Nation：${nat}<br>SP：${sp}<br>FS：${fs}<br>Total：${tot}<br><small class="text-muted">Ranking：${ranking}<br><br></small></p>
+                                </div>
+                            </div>
+                        </div>`);
+                                counter = counter +1; // counter++;
+                                if (counter == 4) {
+                                    $("#top3_items").append(`<div class="/row">`);
+                                    counter = 1;
+                                };
+        
+                        }); // end each
+                    }); // end getJSON
+                }); // end document ready
+        
+        </script>
+
+        <div class="container" id="toptop">
+            <div class="top" id="top3_items">
+                <div class="col-md-4" id="top-content">
+                    <div class="header">
+                        <br><h3 class="top-title"></h3>
+                    </div>
+                    <div class="top-body">
+                    </div>    
+                </div>
+            </div>
         </div>
 
         <!--Footer-->
