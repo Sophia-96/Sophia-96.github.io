@@ -22,8 +22,12 @@
     color: #9195a2;
 }
 
-.thumbnail {
-    padding: 0px;
+#category{
+    padding-top: 5%;
+}
+
+#top3{
+    padding-bottom: 5%;
 }
 
 .back-to-top {

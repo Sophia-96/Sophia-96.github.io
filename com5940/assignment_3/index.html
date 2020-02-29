@@ -25,12 +25,21 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
         <script>
-            function modal_handle(category, org_desc, image) {
+            function modal_handle(category, image, desc) {
                          $("h3.modal-title").html(`${category}`);
                          $(".modal-body").html(`<img src="${image}"
-                             class="img-responsive"><p>${org_desc}</p>`);
+                             class="img-responsive"><p><br>${desc}</p>`);
                          $('#popup-photo').modal('show');
              } // end modal_handle function
+        </script>
+
+        <script>
+            function top_athletes(name, nat, sp, fs, tot, pic) {
+                         $("h3.top-title").html(`${name}`);
+                         $(".top-pic").html(`<img src="${pic}"
+                             class="center-block img-circle img-responsive"><p><br>${desc}</p>`);
+                         $(".top-content").html(`<p>Nation: ${nat}<br>SP: ${sp}<br>FS: ${fs}<br>Total: ${tot}</p>`);
+             } // end top_athletes function
         </script>
 
     </head>
@@ -52,7 +61,7 @@
                             <a href="#"><b>Home</b></a>
                         </li>
                         <li>
-                            <a href="#categories"><b>About</b></a>
+                            <a href="#category"><b>About</b></a>
                         </li>
                         <li>
                             <a href="#top3"><b>Top 3</b></a>
@@ -72,20 +81,14 @@
             </div>
         </div>
 
-        <div class="section" id="categories">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="section">
-                            <div class="section-header">
-                                <h1 class="text-center">SKATING CATEGORIES</h1>
-                                <p class="text-center">For anyone who are interested in figure skating and would like to explore
-                                it with us.</p><br>
-                            </div>
-                        </div>
-                    </div><!-- end container -->
+        <div id="category">
+            <div class="container" id="categories">
+                <div class="section-header">
+                    <h1 class="text-center">SKATING CATEGORIES</h1>
+                    <p class="text-center">For anyone who are interested in figure skating and would like to explore
+                    it with us.</p><br><br>
                 </div>
-            </div>
+            </div><!-- end container -->
         </div>
 
         <div class="modal fade" id="popup-photo">
@@ -93,12 +96,12 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title">Free Skating</h4>
+                        <h3 class="modal-title"></h3>
                     </div>
                     <div class="modal-body">
-                        <p><br></p>
                     </div>
                     <div class="modal-footer">
+                        <p></p>
                         <a class="btn btn-default" data-dismiss="modal">Close</a>
                     </div>
                 </div>
@@ -112,7 +115,7 @@
                 $.getJSON(at_getapi, function(result) {
                     $.each(result.records, function(key,value) {
                             var category = value.fields.Name;
-                            var desc = value.fields.Detail;
+                            var desc = value.fields.Desc;
                             var image = value.fields.img_url;
                             if (counter == 1) {$("#categories").append(`<div class="row">`)};
                             $("#categories").append(`<div class="col-md-3">
@@ -138,47 +141,49 @@
 
         </script>
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-
-        <div class="section" id="top3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="section">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="section-header">
-                                        <h1 class="text-center">2019 WORLD CHAMPIONSHIPS TOP3</h1>
-                                        <p class="text-center">March 18 - March 24, Saitama City / JPN</p><br><br><br>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <img src="img/8.png"
-                                        class="center-block img-circle img-responsive">
-                                        <h3 class="text-center">John Doe</h3>
-                                        <p class="text-center">Developer</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="img/4.jpg"
-                                        class="center-block img-circle img-responsive">
-                                        <h3 class="text-center">John Doe</h3>
-                                        <p class="text-center">Developer</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="img/11.png"
-                                        class="center-block img-circle img-responsive">
-                                        <h3 class="text-center">John Doe</h3>
-                                        <p class="text-center">Developer</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div id="top3">
+            <div class="container" id="top3_items">
+                <div class="section-header">
+                    <h1 class="text-center">2019 WORLD CHAMPIONSHIPS TOP3</h1>
+                    <p class="text-center">March 18 - March 24, Saitama City / JPN</p><br><br>
                 </div>
+            </div><!-- end container -->
+        </div>
+
+        <div id="top-athletes">
+            <div id="top-pic">
+            </div>
+            <div id="top-content">
+                <h3 id="top-title"></h3>
+                <p></p>
             </div>
         </div>
+
+        <script>
+            $(document).ready(function(){
+                var counter = 1;
+                var at_getapi = "https://api.airtable.com/v0/appfae34QFjBmiKNs/top?api_key=keyV7QPdbhgkDIJS6";
+                $.getJSON(at_getapi, function(result) {
+                    $.each(result.records, function(key,value) {
+                            var name = value.fields.Name;
+                            var nat = value.fields.Nat;
+                            var sp = value.fields.SP;
+                            var fs = value.fields.FS;
+                            var tot = value.fields.Total;
+                            var pic = value.fields.Pic;
+                            if (counter == 1) {$("#top_items").append(`<div class="row">`)};
+                            $("#top_items").append(`<div class="col-md-4"></div>`);
+                            counter = counter +1; // counter++;
+                            if (counter == 4) {
+                                $("#top_items").append(`<div class="/row">`);
+                                counter = 1;
+                            };
+
+                    }); // end each
+                }); // end getJSON
+            }); // end document ready
+
+        </script>
 
         <!--Footer-->
         <div class="container" id="footer">
@@ -192,7 +197,9 @@
                 </div>
             </div>
         </div>
-
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
 
         <script>
         $(document).ready(function(){
