@@ -104,7 +104,6 @@
             $(document).ready(function(){
                 var counter = 1;
                 var at_getapi = "https://api.airtable.com/v0/appfae34QFjBmiKNs/cat?api_key=keygwX4DioRe1fgA2";
-
                 $.getJSON(at_getapi, function(result) {
                     $.each(result.records, function(key,value) {
                             var category = value.fields.Name;
