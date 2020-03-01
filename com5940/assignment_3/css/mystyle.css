@@ -18,6 +18,18 @@
     color: #ebebeb;
 }
 
+.pull-left {
+    float: left;
+}
+
+#logo img {
+    padding-top: 10px;
+    margin: 0;
+    max-height: 40px;
+    vertical-align: middle;
+    border-style: none;
+}
+
 .section-header p{
     font-size: 20px;
     color: #9195a2;
