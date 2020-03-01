@@ -25,10 +25,10 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
         <script>
-            function modal_handle(category, image, desc) {
+            function modal_handle(category, image, detail) {
                          $("h3.modal-title").html(`${category}`);
                          $(".modal-body").html(`<img src="${image}"
-                             class="img-responsive"><p><br>${desc}</p>`);
+                             class="img-responsive"><p><br>${detail}</p>`);
                          $('#popup-photo').modal('show');
             } // end modal_handle function
         </script>
@@ -104,10 +104,11 @@
             $(document).ready(function(){
                 var counter = 1;
                 var at_getapi = "https://api.airtable.com/v0/appfae34QFjBmiKNs/cat?api_key=keygwX4DioRe1fgA2";
+
                 $.getJSON(at_getapi, function(result) {
                     $.each(result.records, function(key,value) {
                             var category = value.fields.Name;
-                            var desc = value.fields.Desc;
+                            var detail = value.fields.Desc;
                             var image = value.fields.img_url;
                             if (counter == 1) {$("#categories").append(`<div class="row">`)};
                             $("#categories").append(`<div class="col-md-3">
@@ -116,7 +117,7 @@
                             class="img-responsive" style="max-height:200px; object-fit:cover">
                             <div class="caption">
                                 <h3>${category}</h3>
-                                <button class="btn btn-md btn-primary" onclick="modal_handle('${category}','${image}','${desc}')" data-toggle="modal"
+                                <button class="btn btn-md btn-primary" onclick="modal_handle('${category}','${image}','${detail}')" data-toggle="modal"
                                  data-id="107" data-body="testing...">View</button>
                             </div>
                         </div>
