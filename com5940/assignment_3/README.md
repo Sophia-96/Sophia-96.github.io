@@ -1,4 +1,7 @@
-<h1>Reminder</h1>
+<h2>Assignment #3</h2>
+<p>Website: https://sophia-96.github.io/com5940/assignment_3/index.html</p>
+
+<h2>Reminder</h2>
 <p>There is something wrong with the order of items in Airtable...</p>
 <p>
 Some reference:(not successful yet)<br>
