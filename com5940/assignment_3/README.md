@@ -4,7 +4,7 @@
 <p class="text-muted">Finally tested with PhoneGap and is also successful.</p>
   
 <h2>Reminder</h2>
-<p>There is something wrong with the order of items in Airtable...</p>
+<p>There is something wrong with the order of items in Airtable...(unresolved)</p>
 <p>
 Some reference: (not successful yet)<br>
 https://github.com/Airtable/airtable.js/blob/master/build/airtable.browser.js
