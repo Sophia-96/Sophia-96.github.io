@@ -1,5 +1,6 @@
 <h2>Assignment #3</h2>
 <p>Website: https://sophia-96.github.io/com5940/assignment_3/index.html</p>
+<p>App: MyApp/Figure_Skating_Exploration.apk</p>
 
 <h2>Reminder</h2>
 <p>There is something wrong with the order of items in Airtable...</p>
