@@ -6,30 +6,28 @@
         <div class="container">
             <div class="section-header">
                 <h1 class="text-center">2019 WORLD CHAMPIONSHIPS TOP3<br></h1>
-                <p class="text-center">March 18 - March 24, Saitama City / JPN</p><br>
+                <p class="text-center">March 18 - March 24, Saitama City / JPN</p><br><br><br>
             </div>
         </div>
     </div>
-    
-    <div class="container">
-        
-        {% for item in dataset %}
-            {% if loop.index == 1 %}{% set counter = ( counter | default(1) ) %}{% endif %}
-            {% if counter == 1 %}<div class="row">{% endif %}
-    
-            <div class="col-md-4" style="text-align:center">
-                <div class="top3_items">
-                    <img height="auto" width="100%" src="{{ item['Pic_url'] }}" class="center-block img-circle img-responsive">
-                    <div class="top-content"><br>
-                        <h3 class="top-title">{{ item['Name'] }}</h3>
-                        <p class="top-body">Nation：{{ item['Nat'] }}<br>SP：{{ item['SP'] }}<br>FS：{{ item['FS'] }}<br>Total：{{ item['Total'] }}<br><small class="text-muted">Ranking：{{ item['Ranking'] }}<br><br></small></p>
-                    </div>
-                </div>
-            </div>
-            
-            {% if counter == 3 %}</div><!--end row-->{%  set counter = ( counter | default(1) ) %}{% else %}{% set counter = ( counter | default(0) ) + 1 %}{% endif %}
-            {% endfor %} 
 
+    <div class="container">
+    {% for item in dataset %}
+        {% if loop.index == 1 %}{% set counter = ( counter | default(1) ) %}{% endif %}
+        {% if counter == 1 %}<div class="row">{% endif %}
+
+        <div class="col-md-4" style="text-align:center">
+           <div class="top3_items">
+              <img height="200px" width="100%" src="{{ item['Pic_url'] }}" class="center-block img-circle img-responsive">
+                 <div class="top-content"><br>
+                    <h3 class="top-title">{{ item['Name'] }}</h3>
+                    <p class="top-body">Nation：{{ item['Nat'] }}<br>SP：{{ item['SP'] }}<br>FS：{{ item['FS'] }}<br>Total：{{ item['Total'] }}<br>Ranking：{{ item['Ranking'] }}<br><br><br></p>
+                 </div>
+           </div>
+        </div>
+           
+        {% if counter == 3 %}</div><!--end row-->{%  set counter = ( counter | default(1) ) %}{% else %}{% set counter = ( counter | default(0) ) + 1 %}{% endif %}
+    {% endfor %} 
     </div>
 
 {% endblock %}

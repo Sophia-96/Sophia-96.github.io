@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Figure Skating</title>
+        <title>Figure Skating Exploration</title>
         <link rel="stylesheet" href="{{url_for('static', filename='css/mystyle.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='css/pingendo.css')}}">
@@ -13,7 +13,7 @@
     </head>
     
     <body>
-        <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <div class="navbar navbar-default navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header" id="header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
@@ -22,14 +22,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Figure Skating</a>
+                    <a class="navbar-brand" href="#">Figure Skating Exploration</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="/">Home</a></li>
                         <li><a href="/top3">Top 3</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
                         <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                         <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
                     </ul>
@@ -37,22 +35,9 @@
             </div>
         </div>
 
-        <!--Cover-->
-
-        <div class="jumbotron">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h1>FIGURE SKATING EXPLORATION</h1><br>
-                        <p>For anyone who are interested in figure skating and would like to explore it with us.</p><br>
-                        <p>{{message}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!--Content-->
-
+        
         <div class="container">
             {% block content %}
             {% endblock %}
@@ -62,9 +47,7 @@
         <div class="container" id="footer">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="#" class="back-to-top" style="display: inline;"><i class="fa fa-angle-up"></i></a>
                     <p class="text-center">
-                        <br>A Competitive and Artistic Sport
                         <br>© Copyright<b> Sophia COM 5940,</b> CUHK
                     </p>            
                 </div>
