@@ -40,6 +40,12 @@
     padding-bottom: 0;
 }
 
+.modal-body p{
+    text-align: justify;
+    margin: 3px 3px 5px;
+}
+
+
 #top3{
     padding-top: 5%;
 }
