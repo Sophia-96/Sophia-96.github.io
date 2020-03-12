@@ -90,3 +90,7 @@
     color: #ffffff;
     text-align: center;
 }
+
+#footer p{
+    padding-top: 5px;
+}
