@@ -54,6 +54,15 @@
     padding-bottom: 5%;
 }
 
+#top3_test{
+    padding-bottom: 8%;
+}
+
+.btn-group{
+    color: white;
+    background-color: black;
+}
+
 .back-to-top {
     position: fixed;
     background: #f82249;

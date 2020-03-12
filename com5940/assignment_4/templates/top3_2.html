@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!--Content:top 3-->
+    <div id="top3">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="text-center">2019 WORLD CHAMPIONSHIPS TOP3<br></h1>
+                <p class="text-center">March 18 - March 24, Saitama City / JPN</p><br><br><br>
+            </div>
+        </div>
+    </div>
+
+    <div id="top3_test">
+    {% for item in dataset %}
+        {% if loop.index == 1 %}{% set counter = ( counter | default(1) )%}{% endif %}
+        {% if counter == 1 %}<div class="row">{% endif %}
+
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img width="100%" height="200px" src="{{ item['Pic_url'] }}" style="object-fit:cover">
+                <div class="card-body" style="text-align:center">
+                    <p class="card-text"><br>Name: {{ item['Name'] }}<br>Nat: {{ item['Nat'] }}<br>SP: {{ item['SP'] }}<br>FS: {{ item['FS'] }}<br>Total: {{ item['Total'] }}<br>Ranking: {{ item['Ranking'] }}<br></p>
+                    <div class="btn-group"><button type="button" class="btn btn-md btn-primary active">View</button>
+                </div><br><br>
+            </div>
+        </div>
+        </div>
+  
+    {% if counter == 3 %}</div><!--end row-->{% set counter = ( counter | default(1) )%}{% else %}{% set counter = ( counter | default(0) + 1 )%}{% endif %}
+    {% endfor %}
+    </div>
+
+{% endblock %}
