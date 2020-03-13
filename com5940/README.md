@@ -1,1 +1,1 @@
-This is a new folder for com5940.
+# New Media Business Model and Innovation
