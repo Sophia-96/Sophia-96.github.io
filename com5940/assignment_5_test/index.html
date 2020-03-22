@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Bootstrap CSS File -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Libraries CSS Files -->
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/animate.min.css" rel="stylesheet">
+        <link href="css/venobox.css" rel="stylesheet">
+        <link href="css/owl.carousel.min.css" rel="stylesheet">
+
+        <!-- Main Stylesheet File -->
+        <link href="css/dash.css" rel="stylesheet">
+
+        <!-- Data Table File -->
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.8/c3.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.8/c3.min.css" rel="stylesheet" type="text/css">
+        <script src="js/scriptlib.js"></script>
+        <title>Figure Skating Exploration</title>
+        
+    </head>
+    
+    <body>
+
+        <!-- Graph Section -->
+        <main id="main" class="main-page">
+
+            <section id="ranking" class="wow fadeInUp">
+            <div class="container wow fadeInUp">
+                <div class="section-header">
+                <h2>2019 World Championships Top 10</h2>
+                </div>
+
+                <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" id="recurve_women" href="#list1" role="tab" data-toggle="tab">Men Skating</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="recurve_men" href="#list2" role="tab" data-toggle="tab">Ladies Skating</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="compound_women" href="#list3" role="tab" data-toggle="tab">Pairs Skating</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="compound_men" href="#list4" role="tab" data-toggle="tab">Dance Skating</button>
+                </li>
+                </ul>
+
+                <div class="tab-content row justify-content-center">
+
+                <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="list1">
+                    <div class="table-responsive table-item" id="rw">
+                    <table id="table1" width="100%" class="table table-bordered"></table>
+                    <h4 id="title1"></h4>
+                    <div id="chart_rw"></div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="col-lg-9 tab-pane fade" id="list2">
+                    <div class="table-responsive table-item" id="rm">
+                    <table id="table2" width="100%" class="table table-bordered"></table>
+                    <h4 id="title2"></h4>
+                    <div id="chart_rm"></div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="col-lg-9 tab-pane fade" id="list3">
+                    <div class="table-responsive table-item" id="cw">
+                    <table id="table3" width="100%" class="table table-bordered"></table>
+                    <h4 id="title3"></h4>
+                    <div id="chart_cw"></div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="col-lg-9 tab-pane fade" id="list4">
+                    <div class="table-responsive table-item" id="cm">
+                    <table id="table4" width="100%" class="table table-bordered"></table>
+                    <h4 id="title4"></h4>
+                    <div id="chart_cm"></div>
+                    </div>
+                </div>
+
+                </div>
+
+            </div>
+
+            </section>
+
+
+        </main>
+
+        <!-- JavaScript Libraries -->
+
+        <script src="js/jquery-migrate.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/easing.min.js"></script>
+        <script src="js/hoverIntent.js"></script>
+        <script src="js/superfish.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/venobox.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+
+        <!-- Template Main Javascript File -->
+        <script src="js/main.js"></script>
+
+
+    </body>
+
+</html>
