@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../static/jquery/jquery2-0-3.js"></script>
+        <script type="text/javascript" src="../static/bootstrap/bootstrap3-3-4.min.js"></script>
+        <link href="../static/css/font-awesome4-3-0.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../static/bootstrap/bootstrap4-4-1.min.css">
+        <link rel="stylesheet" href="../static/main.css">
+        <!--customized css-->
+        <link rel="stylesheet" href="../static/mycss.css">
+        <link rel="stylesheet" href="../static/css/mystyle.css">
+        <link href="../static/css/pingendo.css"
+        rel="stylesheet" type="text/css">
+        <title>LinkU</title>
+    </head>
+    
+    <body>
+      <!--报错信息-->
+      <div class="row">
+        <div class="col-md-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                {{ message }}
+                </div>
+            {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </div>
+      </div>
+      <div class="section" id="chance-section">
+        <div class="container">
+        {% for item in dataset %}
+          <div class="row">
+            <div class="col-md-12">
+              <div class="thumbnail">
+                  <a href="{{ url_for('detail', act_id= item['act_id']) }}"><img src="{{ item['pic_url'] }}" width="100%" height="200px"></a>
+                  <div class="caption">
+                    <h3>{{ item['title'] }}<a class="g-tag-green tags-other">{{ item['tag'] }}</a></h3>
+                    <p>{{ item['promotion'] }}
+                    <a class="value">￥<em>{{ item['price'] }}</em></a>
+                    <br>招募时间：{{ item['time'] }}&nbsp;
+                    <br>推广平台：{{ item['platform'] }}</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+        
+      <!-- footer -->
+      <div class="section">
+        <div id="footer">
+          <div class="col-xs-3 mt-2">
+            <a href="/home"><img src="../static/assets/icon/动态1.png" width="30" height="30"></a>
+              <p class="footer-notselected" style="font-size: 10px">动态</p>
+          </div>
+          <div class="col-xs-3 mt-2">
+            <a href="/chance"><img src="../static/assets/icon/机遇2.png" width="30" height="30"></a>
+              <p class="footer-selected" style="font-size: 10px">机遇</p>
+          </div>
+          <div class="col-xs-3 mt-2">
+            <a href="/bibi"><img src="../static/assets/icon/哔哔1.png" width="30" height="30"></a>
+              <p class="footer-notselected" style="font-size: 10px">哔哔</p>
+          </div>
+          <div class="col-xs-3 mt-2">
+            <a href="/me"><img src="../static/assets/icon/我1.png" width="30" height="30"></a>
+              <p class="footer-notselected" style="font-size: 10px">我</p>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../static/jquery/jquery2-0-3.js"></script>
+        <script type="text/javascript" src="../static/bootstrap/bootstrap3-3-4.min.js"></script>
+        <link href="../static/css/font-awesome4-3-0.min.css"
+        rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../static/bootstrap/bootstrap4-4-1.min.css">
+        <link rel="stylesheet" href="../static/main.css">
+        <!--customized css-->
+        <link rel="stylesheet" href="../static/mycss.css">
+        <link rel="stylesheet" href="../static/css/mystyle.css">
+        <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="1cf9d04e-7d80-4728-a6fb-d43e82d0a8ad";
+        (function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+        <title>LinkU</title>
+    </head>
+    
+    <body>
+      <!-- top navbar -->
+      <div class="navbar-default navbar-static-top" id="top-navbar">
+        <div class="row" style="width: 100%;">
+          <div class="col-md-3">
+            <a href="javascript:history.back();"><img src="../static/assets/icon/左箭头.png" width="25" height="25" style="margin-top: 0.5rem;float:left;margin-left:1.5rem;"></a>
+            <h5 class="text-center title-center" style="height: 3rem;">机遇</h5>
+          </div>
+        </div>
+      </div>
+      <!--报错信息-->
+      <div class="row">
+        <div class="col-md-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                {{ message }}
+                </div>
+            {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </div>
+      </div>
+      <!-- content -->
+      {% for item in dataset2 %}
+      <div class="index-banner-top">
+        <img src="{{ item['pic_url'] }}" class="img-responsive" width="100%">
+      </div>
+      <div class="section" id="detail-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="text-justify">{{ item['title'] }}</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <ul class="lead nav nav-justified nav-tabs text-justify" id="nav-tabs">
+                <li class="active">
+                  <a href="#reqm">申请要求</a>
+                </li>
+                <li>
+                  <a href="#content">内容建议</a>
+                </li>
+                <li>
+                  <a href="#avoid">避免事项</a>
+                </li>
+                <li>
+                  <a href="#brand">品牌介绍</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row" id="reqm">
+            <div class="col-md-12" id="det1">
+              <h5><b>申请要求</b></h5>
+              <p class="text-justify">{{ item['reqm'] }}</p>
+              <hr>
+            </div>
+          </div>
+          <div class="row" id="content">
+            <div class="col-md-12" id="det2">
+              <h5><b>内容建议</b></h5>
+              <p class="text-justify">{{ item['content'] }}</p>
+              <hr>
+            </div>
+          </div>
+          <div class="row" id="avoid">
+            <div class="col-md-12" id="det3">
+              <h5><b>避免事项</b></h5>
+              <p class="text-justify">{{ item['avoid'] }}</p>
+              <hr>
+            </div>
+          </div>
+          <div class="row" id="brand">
+            <div class="col-md-12" id="det4">
+              <h5><b>品牌介绍</b></h5>
+              <p class="text-justify">{{ item['brand'] }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+      <!-- bottom button -->
+      {% if forbid == 0 %}
+      <div class="content-section" style="background-color: #f5f5f5;">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+              {{ form.submit(class="btn btn-info") }}
+          </div>
+        </form>
+      </div>
+      {% else %}
+      <div class="container">
+        <div class="row ml-3">
+          <h5><b>你已申请过该任务，请耐心等待。</b></h5>
+        </div>
+      </div>
+      {% endif %}
+    </body>
+
+</html>

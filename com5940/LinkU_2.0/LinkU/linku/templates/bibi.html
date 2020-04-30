@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../static/jquery/jquery2-0-3.js"></script>
+        <script type="text/javascript" src="../static/bootstrap/bootstrap3-3-4.min.js"></script>
+        <link href="../static/font-awesome/font-awesome4-3-0.min.css"
+        rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../static/bootstrap/bootstrap4-4-1.min.css">
+        <link rel="stylesheet" href="../static/main.css">
+        <!--自定义css-->
+        <link rel="stylesheet" href="../static/mycss.css">
+        <title>LinkU</title>
+    </head>
+    
+    <body>
+        <!-- top-banner -->
+        <div class="index-banner-top">
+            <a href="#"><img src="https://ununsplash.imgix.net/photo-1423753623104-718aaace6772?fm=jpg&amp;s=1ffa61419561b5c796bca3158e7c704c" class="img-responsive"></a>
+        </div>
+        <!--报错信息-->
+        <div class="row">
+          <div class="col-md-8">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+              {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                  {{ message }}
+                  </div>
+              {% endfor %}
+              {% endif %}
+          {% endwith %}
+          </div>
+        </div>
+        <div class="section ml-4" style="padding:1rem;"><h5 style="font-weight: bold;">最新帖子</h5></div>
+        <!-- blog content --><div class="section" style="margin-bottom: 5rem;padding-top:0;">
+            {% for post in posts.items %}
+            <article class="media content-section">
+                <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <a class="mr-2" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+                        <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+                    </div>
+                    <h4>
+                        <a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a>
+                    </h4>
+                    <p class="article-content">{{ post.content }}</p>
+                </div>
+            </article>{% endfor %} {% for page_num in posts.iter_pages(left_edge=1, right_edge=1,
+            left_current=1, right_current=2) %} {% if page_num %} {% if posts.page
+            == page_num %}
+            <a class="btn btn-outline-info mb-4 ml-4" href="{{ url_for('bibi', page=page_num) }}">{{ page_num }}</a>{% else %}
+            <a class="btn btn-outline-info mb-4 ml-4" href="{{ url_for('bibi', page=page_num) }}">{{ page_num }}</a>{% endif %} {% else %} ... {% endif %} {% endfor %}</div>
+        </div>
+        <!-- add post
+        button -->
+        <a href="/post/new"><button id="myBtn">+</button></a>
+    <!--footer-->
+      <div class="section">
+        <div id="footer">
+          <div class="col-xs-3 mt-2">
+            <a href="/home"><img src="../static/assets/icon/动态1.png" width="30" height="30"></a>
+              <p class="footer-notselected" style="font-size: 10px">动态</p>
+          </div>
+          <div class="col-xs-3 mt-2">
+            <a href="/chance"><img src="../static/assets/icon/机遇1.png" width="30" height="30"></a>
+              <p class="footer-notselected" style="font-size: 10px">机遇</p>
+          </div>
+          <div class="col-xs-3 mt-2">
+            <a href="/bibi"><img src="../static/assets/icon/哔哔2.png" width="30" height="30"></a>
+              <p class="footer-selected" style="font-size: 10px">哔哔</p>
+          </div>
+          <div class="col-xs-3 mt-2">
+            <a href="/me"><img src="../static/assets/icon/我1.png" width="30" height="30"></a>
+              <p class="footer-notselected" style="font-size: 10px">我</p>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+        <script type="text/javascript" src="../static/jquery/jquery2-0-3.js"></script>
+        <script type="text/javascript" src="../static/bootstrap/bootstrap3-3-4.min.js"></script>
+        <link href="../static/font-awesome/font-awesome4-3-0.min.css"
+        rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../static/bootstrap/bootstrap4-4-1.min.css">
+        <link rel="stylesheet" href="../static/main.css">
+        <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="1cf9d04e-7d80-4728-a6fb-d43e82d0a8ad";
+        (function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+        <!--自定义css-->
+        <link rel="stylesheet" href="../static/mycss.css">
+        <title>LinkU</title>
+    </head>
+    
+    <body style="background-color: #f5f5f5;">
+        <!-- profile -->
+        <div class="container mt-1" id="profile">
+            <div class="media">
+                <img class="rounded-circle account-img" src="{{ image_file }}">
+                <div class="media-body">{% if current_user.is_authenticated %}
+                    <h5 class="account-heading">{{ current_user.username }}</h5>
+                    <p class="text-secondary">{{ current_user.email }}</p>
+                    <small class="text-muted">
+                        <a class="ml-2" href="{{ url_for('account') }}">修改资料</a>
+                    </small>
+                    {% else %}
+                    <h5 class="account-heading">请
+                        <a href="/login">登录</a>或<a href="/register">注册</a>
+                    </h5>{% endif %}</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" style="padding:0;">
+                        <ul class="list-group">{% if current_user.is_authenticated %}
+                            <a href="/" class="list-group-item">个人展示</a>
+                            <a href="/money" class="list-group-item">收款方式</a>
+                            <a href="/address" class="list-group-item">联系地址</a>
+                            <a href="/" class="list-group-item">我的合作</a>
+                            <a href="/" class="list-group-item">关于LinkU</a>
+                            <a href="/logout" class="list-group-item">退出登录</a>{% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- footer -->
+        <div class="section">
+            <div id="footer">
+              <div class="col-xs-3 mt-2">
+                <a href="/home"><img src="../static/assets/icon/动态1.png" width="30" height="30"></a>
+                  <p class="footer-notselected" style="font-size: 10px">动态</p>
+              </div>
+              <div class="col-xs-3 mt-2">
+                <a href="/chance"><img src="../static/assets/icon/机遇1.png" width="30" height="30"></a>
+                  <p class="footer-notselected" style="font-size: 10px">机遇</p>
+              </div>
+              <div class="col-xs-3 mt-2">
+                <a href="/bibi"><img src="../static/assets/icon/哔哔1.png" width="30" height="30"></a>
+                  <p class="footer-notselected" style="font-size: 10px">哔哔</p>
+              </div>
+              <div class="col-xs-3 mt-2">
+                <a href="/me"><img src="../static/assets/icon/我2.png" width="30" height="30"></a>
+                  <p class="footer-selected" style="font-size: 10px">我</p>
+              </div>
+            </div>
+        </div>
+    </body>
+
+</html>

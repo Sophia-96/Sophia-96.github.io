@@ -1,0 +1,82 @@
+body {
+    background-color: #f5f5f5;
+}
+
+#chance-section {
+    position: relative;
+    padding: 20px 0 0 0;
+}
+
+#detail-section {
+    position: relative;
+    padding: 15px 10px;
+}
+
+#top-navbar {
+    background-color: #f5f5f5;
+    border-bottom-width: 5px;
+}
+
+.nav > li > a {
+    padding: 6px 6px;
+}
+
+#nav-tabs {
+    color: #f5f5f5;
+}
+
+#det1, #det2, #det3, #det4 {
+    white-space: pre-line;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption{
+    padding: 15px;
+}
+
+.g-tag-green{
+    border: 1px solid #00b985;
+    color: #62CF27!important;
+    border-radius: 2px;
+    display: inline-block;
+    padding: 0 5px;
+    margin-left: 2px;
+    background: #fff;
+    font-size: 16px;
+    height: 24px;
+    line-height: 22px;
+}
+
+.tags-other {
+    float: right;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.value {
+    font-size: 14px;
+    color: #777;
+}
+
+.value em {
+    font-size: 18px;
+    margin-left: 4px;
+}
+
+#btn-apply {
+    color: #fff;
+    background-color: #5a6978;
+    border-color: #5a6978;
+    border-radius: 0px;
+}
+
+#btn-section {
+    padding: 0 0;
+    padding-left: 0px;
+    padding-right: 0px;
+}

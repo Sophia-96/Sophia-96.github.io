@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../static/jquery/jquery2-0-3.js"></script>
+        <script type="text/javascript" src="../static/bootstrap/bootstrap3-3-4.min.js"></script>
+        <link href="../static/font-awesome/font-awesome4-3-0.min.css"
+        rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../static/bootstrap/bootstrap4-4-1.min.css">
+        <link rel="stylesheet" href="../static/main.css">
+        <!--自定义css-->
+        <link rel="stylesheet" href="../static/mycss.css">
+        <title>LinkU</title>
+    </head>
+    
+    <body>
+        <!-- top navbar -->
+        <div class="navbar-default navbar-static-top">
+            <div class="row">
+                <a href="/me"><img src="../static/assets/icon/左箭头.png" width="25" height="25" style="margin-top: 0.5rem;float:left;margin-left:1.5rem;"></a>
+                <h5 class="text-center title-center" style="height: 3rem;">联系地址</h5>
+            </div>
+        </div>
+        <!--报错信息-->
+        <div class="row">
+            <div class="col-md-8">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                    {{ message }}
+                    </div>
+                {% endfor %}
+                {% endif %}
+            {% endwith %}
+            </div>
+        </div>
+        <!-- address --><div class="section" style="margin-bottom: 5rem;padding-top:0;">
+            {% for address in addresses.items %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <p>{{ address.contact }}</p>
+                        <p>{{ address.mobile }}</p>
+                        <p>{{ address.fulladdress }}</p>
+                        <p>{{ address.code }}</p>
+                        <a href="{{ url_for('update_address', address_id=address.id) }}"><button type="button" class="btn btn-danger btn-sm" 
+                            style="margin-bottom: 1rem;">修改</button></a>
+                    </div>
+                </div>
+            </article>{% endfor %}
+            </div>
+            <a href="{{ url_for('new_address') }}"><button class="btn btn-info m-3">新建地址</button></a>
+        </body>
+</html>

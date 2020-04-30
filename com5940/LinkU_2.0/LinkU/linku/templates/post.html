@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../static/jquery/jquery2-0-3.js"></script>
+        <script type="text/javascript" src="../static/bootstrap/bootstrap3-3-4.min.js"></script>
+        <link href="../static/font-awesome/font-awesome4-3-0.min.css"
+        rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../static/bootstrap/bootstrap4-4-1.min.css">
+        <link rel="stylesheet" href="../static/main.css">
+        <!--自定义css-->
+        <script type="text/javascript" src="../static/js/social-share.min.js"></script>
+        <link rel="stylesheet" href="../static/css/share.min.css">
+        <link rel="stylesheet" href="../static/mycss.css">
+        <title>LinkU</title>
+    </head>
+    
+    <body style="background-color: #fafafa;">
+        <!-- top navbar -->
+        <div class="navbar-default navbar-static-top">
+            <div class="row">
+                <a href="/bibi"><img src="../static/assets/icon/左箭头.png" width="25" height="25" style="margin-top: 0.5rem;float:left;margin-left:1.5rem;"></a>
+                <h5 class="text-center title-center" style="height: 3rem;">详情</h5>
+            </div>
+        </div>
+        <!--报错信息-->
+        <div class="row">
+            <div class="col-md-8">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                    {{ message }}
+                    </div>
+                {% endfor %}
+                {% endif %}
+            {% endwith %}
+            </div>
+        </div>
+        <!-- post content -->
+        <article class="media content-section" style="margin: 0;">
+            <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <div class="row" style="margin-left: 1rem;">
+                        <a class="mr-2" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+                        <p>{{ post.date_posted.strftime('%Y-%m-%d') }}</p>
+                        {% if post.author == current_user %}
+                            <button type="button" class="btn btn-danger btn-sm ml-10" data-toggle="modal"
+                            data-target="#deleteModalP" style="margin-left: 5rem;
+                            margin-bottom: 1rem;">删除</button>
+                    {% endif %}</div>
+                </div>
+                <h4 class="article-title">{{ post.title }}</h4>
+                <p class="article-content">{{ post.content }}</p>
+                {% if post.content_image != None %}
+                <img class="img-responsive" src="{{ url_for('static', filename='contentimg/' + post.content_image) }}">
+                {% endif %}
+            </div>
+        </article>
+        <!-- Modal Post -->
+        <div class="modal fade" id="deleteModalP" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+        aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">删除帖子？</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                        <form action="{{ url_for('delete_post', post_id=post.id) }}"
+                        method="POST">
+                            <input class="btn btn-danger" type="submit" value="Delete">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="social-share share-component ml-3" data-sites="weibo,qq,wechat"></div>
+        <!-- all comment-->
+        <div class="section ml-4" style="padding:1rem; margin-bottom: 5rem;"><h5 style="font-weight: bold;">全部回复</h5></div>
+        <div class="section" style="padding-top:0;">
+            {% for comment in comments.items %}
+            <article class="media content-section" style="margin: 0;padding: 0 20px;">
+                <img class="rounded-circle reply-img" src="{{ url_for('static', filename='profile_pics/' + comment.commenter.image_file) }}">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <div class="row"  style="margin-left: 1rem;">
+                            <a class="mr-2" href="{{ url_for('user_posts', username=comment.commenter.username) }}">{{ comment.commenter.username }}</a>
+                            <p class="text-muted">{{ comment.date_posted.strftime('%Y-%m-%d') }}</p>
+                        </div>
+                        <p class="article-content"  style="margin-left: 1rem;">{{ comment.content }}</p>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        <!--leave comment-->
+        <div class="section">
+            <div id="reply"  style="position: fixed;width: 100%;bottom:0;padding:0;">
+                <form method="POST" action="">
+                    {{ form.hidden_tag() }}
+                    <fieldset style="background-color: #fafafa;">
+                        <div>{% if form.content.errors%} {{ form.content(class="form-reply form-control form-control-lg is-invalid") }}
+                            <div
+                            class="invalid-feedback">{% for error in form.content.errors %}
+                                <span>{{ error }}</span>{% endfor %}</div>{% else %} {{ form.content(class="form-reply form-control
+                        form-control-lg")}} {% endif %}</div>
+                        <div>{{ form.submit(class="btn btn-info m-2") }}</div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>
