@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+        <script type="text/javascript" src="../static/jquery/jquery2-0-3.js"></script>
+        <script type="text/javascript" src="../static/bootstrap/bootstrap3-3-4.min.js"></script>
+        <link href="../static/css/font-awesome4-3-0.min.css" rel="stylesheet"
+        type="text/css">
+        <link rel="stylesheet" href="../static/bootstrap/bootstrap4-4-1.min.css">
+        <link rel="stylesheet" href="../static/main.css">
+        <!--customized css-->
+        <link rel="stylesheet" href="../static/mycss.css">
+        <link rel="stylesheet" href="../static/css/mystyle.css">
+        <title>LinkU</title>
+    </head>
+    
+    <body>
+        <!-- top navbar -->
+        <div class="navbar-default navbar-static-top" id="top-navbar">
+            <div class="row" style="width: 100%;">
+                <div class="col-md-3">
+                    <a href="javascript:history.back();"><img src="../static/assets/icon/左箭头.png" width="25" height="25" style="margin-top: 0.5rem;float:left;margin-left:1.5rem;"></a>
+                    <h5 class="text-center title-center" style="height: 3rem;">详情</h5>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        {% for item in dataset2 %}
+                        <p>{{ item['article'] }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+        <script type="text/javascript" src="../static/jquery/jquery2-0-3.js"></script>
+        <script type="text/javascript" src="../static/bootstrap/bootstrap3-3-4.min.js"></script>
+        <link href="../static/font-awesome/font-awesome4-3-0.min.css"
+        rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../static/bootstrap/bootstrap4-4-1.min.css">
+        <link rel="stylesheet" href="../static/main.css">
+        <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="1cf9d04e-7d80-4728-a6fb-d43e82d0a8ad";
+        (function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+        <!--自定义css-->
+        <link rel="stylesheet" href="../static/mycss.css">
+        <title>Fit-up</title>
+    </head>
+    
+    <body style="background-color: #f5f5f5;">
+        <!-- profile -->
+        <div class="container mt-1" id="profile">
+            <div class="media">
+                <img class="rounded-circle account-img" src="{{ image_file }}">
+                <div class="media-body">{% if current_user.is_authenticated %}
+                    <h5 class="account-heading">{{ current_user.username }}</h5>
+                    <p class="text-secondary">{{ current_user.email }}</p>
+                    <small class="text-muted">
+                        <a class="ml-2" href="{{ url_for('account') }}">修改资料</a>
+                    </small>
+                    {% else %}
+                    <h5 class="account-heading">请
+                        <a href="/login">登录</a>或<a href="/register">注册</a>
+                    </h5>{% endif %}</div>
+            </div>
+        </div>
+        <!--报错信息-->
+        <div class="row">
+            <div class="col-md-8">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                    {{ message }}
+                    </div>
+                {% endfor %}
+                {% endif %}
+            {% endwith %}
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" style="padding:0;">
+                        <ul class="list-group">{% if current_user.is_authenticated %}
+                            <a href="/save" class="list-group-item">收藏文章</a>
+                            <a href="/about" class="list-group-item">关于我们</a>
+                            <a href="/ads" class="list-group-item">品牌方入驻</a>
+                            <a href="/logout" class="list-group-item">退出登录</a>
+                            {% else %}
+                            <a href="/ads" class="list-group-item">品牌方入驻</a>
+                            <a href="/about" class="list-group-item">关于我们</a>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="section">
+            <div id="footer">
+              <div class="col-xs-3 mt-2">
+                <a href="/home"><img src="../static/assets/icon/热门1.png" width="30" height="30"></a>
+                  <p class="footer-notselected" style="font-size: 10px">热门</p>
+              </div>
+              <div class="col-xs-3 mt-2">
+                <a href="/article"><img src="../static/assets/icon/创作1.png" width="30" height="30"></a>
+                  <p class="footer-notselected" style="font-size: 10px">创作</p>
+              </div>
+              <div class="col-xs-3 mt-2">
+                <a href="/vip"><img src="../static/assets/icon/VIP1.png" width="30" height="30"></a>
+                  <p class="footer-notselected" style="font-size: 10px">VIP</p>
+              </div>
+              <div class="col-xs-3 mt-2">
+                <a href="/me"><img src="../static/assets/icon/我2.png" width="30" height="30"></a>
+                  <p class="footer-selected" style="font-size: 10px">我</p>
+              </div>
+            </div>
+        </div>
+    </body>
+
+</html>
